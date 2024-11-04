@@ -1,0 +1,103 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+#app {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Task Input Section */
+#taskInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#addTaskButton {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addTaskButton:hover {
+    background-color: #4cae4c;
+}
+
+/* Task List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-text {
+    flex: 1;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Completed Task Styling */
+.completed .task-text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Button Styling */
+.edit-button,
+.delete-button {
+    margin-left: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #ec971f;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
