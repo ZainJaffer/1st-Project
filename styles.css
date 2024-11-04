@@ -22,7 +22,7 @@ body {
 #taskInput {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
@@ -73,10 +73,23 @@ ul {
 .edit-button,
 .delete-button {
     margin-left: 5px;
-    padding: 5px;
+    padding: 8px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    visibility: hidden;
+}
+
+/* Show buttons only when hovering over the task */
+.task:hover .edit-button,
+.task:hover .delete-button {
+    visibility: visible;
+}
+
+/* Button Container Styling */
+.button-container {
+    display: flex;
+    gap: 5px; /* Space between the buttons */
 }
 
 .edit-button {
@@ -101,3 +114,4 @@ ul {
     text-decoration: line-through;
     color: gray;
 }
+
