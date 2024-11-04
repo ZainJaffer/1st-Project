@@ -6,6 +6,13 @@ const taskList = document.getElementById("taskList");
 // Add event listener for "Add Task" button
 addTaskButton.addEventListener("click", addTask);
 
+taskInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevents any default Enter behavior
+        addTask(); // Calls addTask function to add the new task
+    }
+});
+
 function addTask() {
     const taskTitle = taskInput.value.trim();
     if (taskTitle === "") {
@@ -42,15 +49,13 @@ function addTask() {
 
     // Add event listener to edit the task when edit button is clicked
     editButton.addEventListener("click", () => {
-        if (editButton.textContent === "Edit") {
-            // Switch to edit mode
-            taskSpan.contentEditable = true;
-            taskSpan.focus(); // Focus on the task text for editing
-            editButton.textContent = "Save"; // Change button text to Save
-        } else {
-            // Switch back to view mode
-            taskSpan.contentEditable = false;
-            editButton.textContent = "Edit"; // Change button text back to Edit
+        toggleEditMode(taskSpan, editButton);
+    });
+
+    taskSpan.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevents adding a new line
+            toggleEditMode(taskSpan, editButton); // Save the task
         }
     });
 
@@ -65,4 +70,17 @@ function addTask() {
     // Append the task item to the task list
     taskList.appendChild(listItem);
     taskInput.value = "";
+}
+
+function toggleEditMode(taskSpan, editButton) {
+    if (editButton.textContent === "Edit") {
+        // Switch to edit mode
+        taskSpan.contentEditable = true;
+        taskSpan.focus();
+        editButton.textContent = "Save";
+    } else {
+        // Switch back to view mode
+        taskSpan.contentEditable = false;
+        editButton.textContent = "Edit";
+    }
 }

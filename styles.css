@@ -30,18 +30,20 @@ body {
 
 #addTaskButton {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 20px;
     border: none;
-    background-color: #5cb85c;
+    background-color: #28a745; /* A brighter green */
     color: white;
-    border-radius: 4px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 #addTaskButton:hover {
-    background-color: #4cae4c;
+    background-color: #218838; /* Darker green on hover */
 }
+
 
 /* Task List Styling */
 ul {
@@ -49,12 +51,21 @@ ul {
     padding: 0;
 }
 
+
+/* Task item hover effect */
 .task {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 5px;
+}
+
+.task:hover {
+    background-color: #f2f8f4;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .task-text {
@@ -63,11 +74,20 @@ ul {
     cursor: pointer;
 }
 
+.task-text[contenteditable="true"] {
+    padding: 5px;        /* Adds internal spacing around text */
+    line-height: 1.4;    /* Adjusts line spacing for readability */
+    min-height: 20px;    /* Ensures a minimum height for the edit box */
+    border: 1px solid #ddd; /* Optional: adds a border while editing */
+    border-radius: 4px;  /* Optional: rounds the border corners */
+}
+
 /* Completed Task Styling */
 .completed .task-text {
     text-decoration: line-through;
     color: gray;
 }
+
 
 /* Button Styling */
 .edit-button,
