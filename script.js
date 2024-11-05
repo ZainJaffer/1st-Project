@@ -29,6 +29,11 @@ function addTask() {
     taskSpan.classList.add("task-text");
     taskSpan.textContent = taskTitle;
 
+    // Add an event listener to toggle the completed class on click
+    taskSpan.addEventListener("click", () => {
+    taskSpan.classList.toggle("completed"); // Toggle line-through class
+    });
+
     // Create the button container
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button-container");
